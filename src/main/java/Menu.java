@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 public class Menu {
-  final String[] DISHES = {"Ham and Eggs", "Sausage and Bacon", "Curry"};
+  ArrayList<String> DISHES = new ArrayList<>(List.of("Ham and Eggs","Sausage and Bacon", "Curry"));
 
-  public String[] getMenu(){
+
+  public ArrayList getMenu(){
     return DISHES;
+  }
+
+  public void addDish(String dish){
+    DISHES.add(dish);
   }
 
 }
