@@ -1,7 +1,12 @@
+import java.util.ArrayList;
 public class Output {
-  public static void display(String[] arr){
-    for(String i: arr){
-      System.out.println(i);
+  public static void display(ArrayList<Dish> dishes){
+    if(dishes.size() > 0) {
+      for (Dish i : dishes) {
+        System.out.println(i);
+      }
+    }else{
+      System.out.println("Sorry, the list of dishes you passed was empty");
     }
 
   }

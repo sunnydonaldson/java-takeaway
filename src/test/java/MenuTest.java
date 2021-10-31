@@ -8,37 +8,49 @@ public class MenuTest {
   Dish salad = mock(Dish.class);
   Dish ham = mock(Dish.class);
   Dish curry = mock(Dish.class);
+  Dish cake = mock(Dish.class);
+  ArrayList<Dish> DISHES = new ArrayList<>(List.of(salad, ham, curry));
+
   MenuTest() {
-    stubHelper(salad, "Salad", 6.00);
-    stubHelper(ham, "Ham and Eggs", 12.80);
-    stubHelper(curry, "Curry", 14.00);
+    dishStubHelper(salad, "Salad", 6.00);
+    dishStubHelper(ham, "Ham and Eggs", 12.80);
+    dishStubHelper(curry, "Curry", 14.00);
+    dishStubHelper(cake, "Chocolate Cake", 4.50);
   }
 
 
-  private void stubHelper(Dish dish_mock, String title, double price){
+  private void dishStubHelper(Dish dish_mock, String title, double price){
     when(dish_mock.title()).thenReturn(title);
     when(dish_mock.price()).thenReturn(price);
   }
 
-  @Test public void testGetDishes(){
-    Menu menu = new Menu();
-    ArrayList<String>  DISHES = new ArrayList<>(List.of("Ham and Eggs", "Sausage and Bacon", "Curry"));
+  @Test public void testConstructorWithListArg(){
+    Menu menu = new Menu(DISHES);
     assertEquals(DISHES, menu.getMenu());
+  }
+
+  @Test public void testConstructorWithNoArg(){
+    Menu menu = new Menu();
+  }
+
+
+  //basically a duplicate of testConstructorWithListArg
+  @Test public void testGetDishesWithDishes(){
+    Menu menu = new Menu(DISHES);
+    assertEquals(DISHES, menu.getMenu());
+  }
+
+  @Test public void testGetDishesNoDishes(){
+    Menu menu = new Menu();
+    assertEquals(null, menu.getMenu());
   }
 
   @Test public void testAddDish(){
-    Menu menu = new Menu();
-    ArrayList<String>  DISHES = new ArrayList<>(List.of("Ham and Eggs", "Sausage and Bacon", "Curry", "Cake"));
-    menu.addDish("Cake");
+    Menu menu = new Menu(DISHES);
+    menu.addDish(cake);
     assertEquals(DISHES, menu.getMenu());
 
   }
 
-  @Test public void testMock(){
-   Menu menu = new Menu();
-
-   Dish result = menu.testMock(salad);
-    System.out.println(salad.title());
-  }
 
 }

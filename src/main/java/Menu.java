@@ -1,17 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
 public class Menu {
-  ArrayList<String> DISHES = new ArrayList<>(List.of("Ham and Eggs","Sausage and Bacon", "Curry"));
+  ArrayList<Dish> DISHES;
+
+  Menu(){
+    System.out.println("Menu initialized with no items");
+  }
+  Menu(ArrayList<Dish> dishes){
+    DISHES = dishes;
+  }
 
 
   public ArrayList getMenu(){
     return DISHES;
   }
 
-  public void addDish(String dish){
+  public void addDish(Dish dish){
     DISHES.add(dish);
   }
-  public Dish testMock(Dish dish){
-    return dish;
-  }
+
 }
