@@ -4,7 +4,7 @@ public class Menu {
   ArrayList<Dish> DISHES;
 
   Menu(){
-    System.out.println("Menu initialized with no items");
+    DISHES = new ArrayList<>();
   }
   Menu(ArrayList<Dish> dishes){
     DISHES = dishes;

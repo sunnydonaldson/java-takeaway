@@ -3,7 +3,7 @@ public class Output {
   public static void display(ArrayList<Dish> dishes){
     if(dishes.size() > 0) {
       for (Dish i : dishes) {
-        System.out.println(i);
+       display(i);
       }
     }else{
       System.out.println("Sorry, the list of dishes you passed was empty");
