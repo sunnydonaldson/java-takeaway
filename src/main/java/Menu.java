@@ -11,5 +11,7 @@ public class Menu {
   public void addDish(String dish){
     DISHES.add(dish);
   }
-
+  public Dish testMock(Dish dish){
+    return dish;
+  }
 }

@@ -15,4 +15,10 @@ public class DishTest {
     assertEquals(3.44, dish.price());
   }
 
+  @Test public void testConstructor(){
+    Dish dish = new Dish("Halloumi", 12.80);
+    assertEquals("Halloumi",dish.title());
+    assertEquals(12.80, dish.price());
+  }
+
 }
